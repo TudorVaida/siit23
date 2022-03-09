@@ -1,0 +1,66 @@
+body {
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	background-color: grey;
+}
+aside {
+	width: 250px;
+	border-right: solid 3px black;
+	display: flex;
+	flex-direction: column;
+}
+main {
+	height: 100vh;
+	flex: 1;
+}
+#logo {
+	max-height: 50px;
+	max-width: 30px;
+}
+header {
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	border-bottom: solid 3px black;
+}
+.button {
+	padding: 15px 10px 10px 40px;
+	cursor: pointer;
+}
+.button:hover {
+	background-color: aqua;
+}
+.button.active {
+	background-color: teal;
+	color: white;
+}
+.button > img {
+	vertical-align: middle;
+	max-width: 26px;
+	max-height: 26px;
+	margin-right: 20px;
+}
+#pageTitle {
+	flex: 1;
+	margin-left: 20px;
+	font-size: 1.4em;
+}
+#pageTitle.button {
+	border-right: 3px solid black;
+}
+.button2 {
+	display: flex;
+}
+.button2 > img {
+	border-right: 3px solid black;
+	width: 35px;
+}
+.page {
+	display: none;
+}
+.page.active {
+	display: flex;
+	flex-direction: column;
+}
