@@ -1,0 +1,14 @@
+input.error {
+	border: 1px solid red;
+	background-color: lightcoral;
+}
+.page {
+	height: 15em;
+	border: 3px solid black;
+}
+#pages > .page:not(.active) {
+	display: none;
+}
+nav > button.active {
+	background-color: yellow;
+}

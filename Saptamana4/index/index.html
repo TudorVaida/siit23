@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="script.js"></script>
+		<title>Document</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<nav>
+			<button class="active" onclick="showTab()">Tabul 1</button>
+			<button onclick="showTab()">Tabul 2</button>
+			<button onclick="showTab()">Tabul 3</button>
+			<button onclick="showTab()">Tabul 4</button>
+		</nav>
+		<div id="pages">
+			<section class="page active">Page1</section>
+			<section class="page">Page2</section>
+			<section class="page">Page3</section>
+			<section class="page">Page4</section>
+		</div>
+		<input type="number" id="numar" step="100" />
+		<button onclick="clickMe();">Click Me</button>
+		<div id="result"></div>
+		<input type="text" id="numar1" step="100" placeholder="Greutate" />
+		<input type="text" id="numar2" step="100" placeholder="Inaltime" />
+		<button onclick="clickMe2();">Calculeaza indicele de masa corporala</button>
+		<div id="result2"></div>
+	</body>
+</html>
