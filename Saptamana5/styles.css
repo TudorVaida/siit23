@@ -1,0 +1,19 @@
+#game {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+}
+#game > .box {
+	border: 1px solid black;
+	overflow: hidden;
+}
+h3 {
+	text-align: center;
+}
+img {
+	max-width: 133px;
+	max-height: 133px;
+}
