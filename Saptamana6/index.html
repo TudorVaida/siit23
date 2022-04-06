@@ -4,11 +4,12 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
 		<script defer src="script.js"></script>
 		<title>CRUD</title>
 	</head>
 	<body onload="draw()">
-		<form onsubmit="adauga(event)">
+		<form id="formular" class="hidden" onsubmit="adauga(event)">
 			<div><input type="text" placeholder="Title" name="title" /></div>
 			<div>
 				<input type="text" placeholder="URL" name="url" />
@@ -26,14 +27,25 @@
 				<button id="addTagBtn" onclick="addTag(event)">+</button>
 			</div>
 			<input type="submit" value="adauga" />
+			<button onclick=" event.preventDefault();showTab()">anuleaza</button>
 		</form>
+		<button class="btn+" onclick="showForm()">+</button>
 		<table id="list" border="1" style="border-collapse: collapse; width: 100%">
 			<thead>
 				<tr>
-					<th style="width: 40%">Title</th>
-					<th style="width: 20%">Dificulty</th>
-					<th>Tags</th>
-					<th style="width: 100px"></th>
+					<th style="width: 40%" onclick="sortTable(this,'title')">
+						Title
+						<span class="sortDirection"></span>
+					</th>
+					<th style="width: 20%" onclick="sortTable(this,'difficulty')">
+						<span class="sortDirection"></span>
+						Dificulty
+					</th>
+					<th onclick="sortTable(this,'tag')">
+						<span class="sortDirection"></span>
+						Tags
+					</th>
+					<th style="width: 100px" onclick="sortTable()"></th>
 				</tr>
 			</thead>
 			<tbody></tbody>

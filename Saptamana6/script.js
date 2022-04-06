@@ -6,8 +6,28 @@ let state = {
 			difficulty: "2",
 			tags: ["JS", "HTML"],
 		},
+		{
+			title: "Google2",
+			url: "https://google.com",
+			difficulty: "4",
+			tags: ["JS", "HTML"],
+		},
+		{
+			title: "Google3",
+			url: "https://google.com",
+			difficulty: "1",
+			tags: ["JS", "HTML"],
+		},
+		{
+			title: "Google4",
+			url: "https://google.com",
+			difficulty: "0",
+			tags: ["JS", "HTML"],
+		},
 	],
 	idxEdit: null,
+	sortColumn: null,
+	sortDirection: 1,
 	difficulty: {
 		"": "",
 		0: "Entry level",
@@ -36,7 +56,49 @@ function draw() {
 	}
 	table.innerHTML = str;
 }
+
+function sortTable(th, column) {
+	let sortDirectionSpans = document.querySelectorAll(".sortDirection");
+	for (let span of sortDirectionSpans) {
+		span.innerText = "";
+	}
+
+	if (state.sortColumn === column) {
+		state.sortDirection = -state.sortDirection;
+	} else {
+		state.sortDirection = 1;
+	}
+	state.sortColumn = column;
+	if (state.sortDirection === 1) {
+		th.querySelector(".sortDirection").innerHTML = "⬇ ";
+	} else {
+		th.querySelector(".sortDirection").innerHTML = "⬆";
+	}
+	state.list.sort(function (a, b) {
+		if (a[column] < b[column]) {
+			return 1 * state.sortDirection;
+		} else if (a[column] > b[column]) {
+			return -1 * state.sortDirection;
+		} else return 0;
+	});
+	draw();
+}
+
+function showForm() {
+	const formular = document.querySelector("#formular");
+	const tabel = document.querySelector("#list");
+	tabel.classList.add("hidden");
+	formular.classList.remove("hidden");
+	state.idxEdit = null;
+}
+function showTab() {
+	const formular = document.querySelector("#formular");
+	const tabel = document.querySelector("#list");
+	tabel.classList.remove("hidden");
+	formular.classList.add("hidden");
+}
 function edit(idx) {
+	showForm();
 	let elem = state.list[idx];
 	document.querySelector("[name='title']").value = elem.title;
 	document.querySelector("[name='url']").value = elem.url;
@@ -88,6 +150,7 @@ function adauga(event) {
 	}
 	document.querySelector("form").reset();
 	draw();
+	showTab();
 }
 function addTag(event) {
 	if (event) {
