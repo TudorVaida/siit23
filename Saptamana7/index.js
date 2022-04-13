@@ -47,7 +47,7 @@ function deleteAll() {
 	const inputCheck = document.querySelectorAll("input[type='checkbox']");
 	for (let i = inputCheck.length - 1; i >= 0; i--) {
 		if (inputCheck[i].checked) {
-			state.list.splice(state.list[i], 1);
+			state.list.splice(i, 1);
 		}
 	}
 	draw();
@@ -244,4 +244,11 @@ function resetForm() {
 
 	state.idxEdit = null;
 	showForm();
+}
+
+async function getFromFirebase() {
+	let url =
+		"https://linkuri-tudor-vaida-default-rtdb.europe-west1.firebasedatabase.app/.json";
+	let response = await fetch(url);
+	let serveResponse = await response.json(); //response.text() => returneaza raspunsul serverului  ca text
 }
