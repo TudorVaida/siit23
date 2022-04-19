@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Preparat</title>
+		<link rel="stylesheet" href="loading.css" />
 		<style>
 			.container {
 				height: 80%;
@@ -16,6 +17,9 @@
 			img {
 				height: 300px;
 			}
+			.hidden {
+				display: none;
+			}
 		</style>
 		<script>
 			// console.log(window.location.search.substring(4));
@@ -24,8 +28,12 @@
 				"https://meniu-c6eb3-default-rtdb.europe-west1.firebasedatabase.app/";
 			let index = window.location.search.substring(4);
 			async function getData() {
+				document.querySelector("#loading").classList.remove("hidden");
+
 				const r = await fetch(url + index + ".json");
 				preparat = await r.json();
+				document.querySelector("#loading").classList.add("hidden");
+
 				console.log(preparat);
 				draw();
 			}
@@ -37,6 +45,16 @@
 		</script>
 	</head>
 	<body onload="getData()">
+		<div id="loading" class="lds-roller hidden">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
 		<div class="container">
 			<h1></h1>
 			<img src="" alt="" />
