@@ -1,0 +1,15 @@
+.container {
+	margin: 30px;
+	background-color: lightblue;
+	border-radius: 10px;
+	padding: 15px;
+	text-align: center;
+}
+input {
+	margin-bottom: 20px;
+}
+button {
+	background-color: rgb(26, 115, 232);
+	color: white;
+	border: none;
+}
