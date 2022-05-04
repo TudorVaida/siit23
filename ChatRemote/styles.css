@@ -1,0 +1,130 @@
+:root {
+	--chat--color: rgb(0, 132, 255);
+	--backgroundcolor--chat: rgb(36, 37, 38);
+	--user--messages: rgb(62, 64, 66);
+}
+
+* {
+	box-sizing: border-box;
+	color: white;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+body {
+	background-color: lightgreen;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container {
+	width: 60%;
+	min-height: 500px;
+	/* border: 3px solid white; */
+	border-radius: 10px;
+	background-color: var(--backgroundcolor--chat);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.nav-top {
+	height: 40px;
+	background-color: var(--chat--color);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+}
+.chat-content {
+	max-height: 500px;
+	overflow: auto;
+	scroll-behavior: smooth;
+	background-color: var(--backgroundcolor--chat);
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+
+	padding: 10px;
+}
+
+.user-message {
+	float: left;
+	max-width: 50%;
+	background-color: var(--user--messages);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding: 5px;
+}
+.nume {
+	color: rgb(176, 179, 184);
+	font-size: 12px;
+	width: 50%;
+}
+.message {
+	margin-bottom: 10px;
+}
+.message-self {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-bottom: 10px;
+}
+.sent-message {
+	max-width: 50%;
+	background-color: var(--chat--color);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding: 5px;
+}
+
+.nav-bottom {
+	height: fit-content;
+	width: 100%;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	display: flex;
+}
+.nav-bottom > input {
+	border-bottom-left-radius: 10px;
+	flex-grow: 4;
+}
+#btn-send {
+	border-bottom-right-radius: 10px;
+}
+.btn {
+	background-color: var(--backgroundcolor--chat);
+}
+.formular {
+	height: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.formular input {
+	color: black;
+}
+.hidden {
+	display: none;
+}
+@media (max-width: 500px) {
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		display: block;
+	}
+	.container {
+		width: 100%;
+		height: 100%;
+		border-radius: 0;
+	}
+	.sent-message {
+		max-width: 80%;
+	}
+	.user-message {
+		max-width: 80%;
+	}
+}

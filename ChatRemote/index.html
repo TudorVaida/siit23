@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<script defer src="script.js"></script>
+		<title>Group Chat</title>
+	</head>
+	<body onload="getDb()">
+		<div class="formular">
+			<label for="name">Name: </label>
+			<input type="text" id="name" name="name" placeholder="Enter name..." />
+			<button id="submit" class="btn" onclick="submit()">Submit</button>
+		</div>
+		<div class="container hidden">
+			<div class="nav-top">
+				<h3>Chat Room</h3>
+				<div class="btn-nav-top">
+					<button class="btn-nav btn">Log Out</button>
+					<button class="btn-nav btn">Exit</button>
+				</div>
+			</div>
+			<div class="chat-content">
+				<!-- <div class="message">
+					<div class="nume">Johnny L:</div>
+					<div class="user-message">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						Praesentium, aliquam.
+					</div>
+				</div>
+				<div class="message-self">
+					<div class="nume">Tudor:</div>
+					<div class="sent-message">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque
+						alias eaque corrupti reiciendis molestiae fugiat.
+					</div>
+				</div>
+				< -->
+			</div>
+
+			<div class="nav-bottom">
+				<input
+					type="text"
+					placeholder="Type message here..."
+					style="color: black"
+				/>
+				<button id="btn-send" class="btn" onclick="addMessage()">Send</button>
+			</div>
+		</div>
+	</body>
+</html>
