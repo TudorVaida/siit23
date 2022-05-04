@@ -13,20 +13,22 @@ let url =
 	"https://chat-room-c35b3-default-rtdb.europe-west1.firebasedatabase.app/";
 let currentAccount;
 function submit() {
-	const input = document.querySelector("#name").value;
-	currentAccount = input;
+	const input = document.querySelector("#name");
+	currentAccount = input.value;
 	document.querySelector(".formular").classList.add("hidden");
 	document.querySelector(".container").classList.remove("hidden");
+	input.value = "";
 }
 async function addMessage() {
-	const input = document.querySelector(".nav-bottom input").value;
+	const input = document.querySelector(".nav-bottom input");
 	let response = await fetch(url + ".json", {
 		method: "POST",
 		body: JSON.stringify({
 			name: currentAccount,
-			message: input,
+			message: input.value,
 		}),
 	});
+	input.value = "";
 }
 function draw() {
 	const container = document.querySelector(".chat-content");
@@ -59,3 +61,7 @@ async function getDb() {
 	draw();
 }
 setInterval(getDb, 1000);
+function logOut() {
+	document.querySelector(".formular").classList.remove("hidden");
+	document.querySelector(".container").classList.add("hidden");
+}
